@@ -8,7 +8,7 @@ var superagent = require("superagent");
 var clientsController = require('./controllers/clients');
 var jobsController = require('./controllers/jobs')
 
-// Require History Schema
+
 var Clients = require("./models/Clients");
 var Jobs = require("./models/Jobs")
 
@@ -29,6 +29,9 @@ app.use(express.static("public"));
 
 // -------------------------------------------------
 
+// mongoose.connect("mongodb://heroku_wvdq0t7m:thle5joaqosoqs3ce0tj67o6on@ds035674.mlab.com:35674/heroku_wvdq0t7m");
+
+
 // MongoDB Configuration configuration (Change this URL to your own DB)
 mongoose.connect("mongodb://localhost/gp-landscaping");
 var db = mongoose.connection;
@@ -44,16 +47,15 @@ db.once("open", function() {
 // -------------------------------------------------
 
 // Main "/" Route. This will redirect the user to our rendered React application
-app.get("/", function(req, res) {
-  res.sendFile(__dirname + "/public/index.html");
-});
+
 
 // This is the route we will send GET requests to retrieve our most recent search data.
 // We will call this route the moment our page gets rendered
 
 app.post('/api/clients', function(req, res) {
   clientsController.save(req.body, function(data) {
-
+    console.log("data return");
+    console.log(data);
     res.json(data);
   });
   // var doc = new Clients({ name: req.body.name });
@@ -67,6 +69,14 @@ app.post('/api/jobs', function(req, res) {
   });
    });
 
+
+app.get('/api/clients/', function(req, res) {
+  clientsController.get(req.body, function(data) {
+    res.json(data);
+
+
+  });
+});
   // Here we'll save the location based on the JSON input.
   
 //   Clients.create({
@@ -86,7 +96,9 @@ app.post('/api/jobs', function(req, res) {
 //     }
 //   });
 // });
-
+app.get("*", function(req, res) {
+  res.sendFile(__dirname + "/public/index.html");
+});
 // -------------------------------------------------
 
 // Listener

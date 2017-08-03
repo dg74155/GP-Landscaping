@@ -3,14 +3,14 @@ import React from "react";
 import Form from "./children/Form";
 import JobForms from "./children/JobForms";
 import Table from "./children/Table";
-
+import Confirm from "./children/Confirm";
 import Login from "./children/Login";
 import Signup from "./children/Signup";
 
 // import Clients from "./children/Clients"
 
 import { Route, Link} from "react-router";
-var Header = require('./parts/header.js');
+var Header = require('./children/header.js');
 
 
 
@@ -29,6 +29,7 @@ console.log("submit");
      render: function() {
     return (
 
+
      
 
 
@@ -37,8 +38,28 @@ console.log("submit");
           <Header/>
 
 
+
+      <div className="container">
+         <div className="row">
+          <Header/>
+
+
+         
+         {this.props.children}
+
+
+          <div className="col-md-6">
+
+          
+           
+            <Link to ="Clients" className="btn btn-success">New Client</Link>
+          </div>
+
+
+
        
          {this.props.children}
+
 
 
          <div className="col-md-6">
@@ -57,6 +78,19 @@ console.log("submit");
    );
   }
 });
+
+=======
+</div>
+</div>
+          
+        
+    );
+  }
+});
+
+
+module.exports = Main;
+
 
 
 module.exports = Main;
