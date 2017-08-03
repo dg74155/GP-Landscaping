@@ -7,7 +7,7 @@ var axios = require("axios");
 
 var Link = require("react-router").Link;
 
-import style from "../../../public/assets/styles/";
+import styles from "../../../public/assets/styles/forms.css";
 
 
 // Form is the main component. It includes the banner and form element

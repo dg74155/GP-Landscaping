@@ -1,7 +1,12 @@
 .container {
-	background-color: #83878d;
+	background-color: #23541c;
 	font-weight: bold;
 	border-style: solid;
 	align-self: center;
+	color: black;
 
+}
+
+.main-container {
+	background-color: #23541c;
 }

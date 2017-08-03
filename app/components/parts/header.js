@@ -1,26 +1,46 @@
-var React = require('react');
-var Link = require('react-router');
-import {Navbar, NavItem} from 'react-materialize';
+var React = require("react");
+var Link = require("react-router").Link;
 
+import styles from "../../../public/assets/styles/forms.css";
 
 var Header = React.createClass({
+    render: function(){
+    return (
 
-	propTypes: {
-		title: React.PropTypes.string.isRequired
-	},
+<div className="main-container">
+        <div className="container">
+          {/* Navbar */}
+          <nav className="navbar navbar-default" role="navigation">
+            <div className="container-fluid">
+              <div className="navbar-header">
+                <button
+                  type="button"
+                  className="navbar-toggle"
+                  data-toggle="collapse"
+                  data-target=".navbar-ex1-collapse"
+                >
+                  <span className="sr-only">Toggle navigation</span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                </button>
+                <Link className="navbar-brand" to="/">GP-Landscaping</Link>
+              </div>
 
-	render() {
-		return (
-			<header>
-				<h1>{this.props.title}</h1>
-				<Navbar>
-					<NavItem><Link to="../children/Form.js" activeClassName="active">Forms</Link></NavItem>
-					<NavItem><Link to="../children/invoice.js" activeClassName="active">Invoices</Link></NavItem>
-					<NavItem><Link to="../children/JobForms.js" activeClassName="active">Jobs</Link></NavItem>
-				</Navbar>
-			</header>
-			);
-	}
-});
+             <div className="collapse navbar-collapse navbar-ex1-collapse">
+                <ul className="nav navbar-nav navbar-right">
+                  {/* Using <Link> in place of <a> and "to" in place of "href" */}
+                  <li><Link to="/Clients">Clients</Link></li>
+                  <li><Link to="/About">About</Link></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
 
-module.exports = Header;
+        </div>
+         </div>
+        );
+    }
+        });
+
+       module.exports = Header;

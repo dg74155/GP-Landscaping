@@ -3,58 +3,61 @@ import React from "react";
 import Form from "./children/Form";
 import JobForms from "./children/JobForms";
 import Table from "./children/Table";
+
 import Login from "./children/Login";
-// import Signup from "./children/Signup";
+import Signup from "./children/Signup";
+
+// import Clients from "./children/Clients"
+
 import { Route, Link} from "react-router";
 var Header = require('./parts/header.js');
 
 
 
 var helpers = require("./utils/helpers");
-var myHeader = require("./children/myHeader.jsx");
+// var myHeader = require("./children/myHeader.jsx");
 
 
 var Main = React.createClass({
 
+handleSubmit: function(e) {
 
- 
-      render: function() {
+console.log("submit");
+},
+
+
+     render: function() {
     return (
-      <div>
-        <div>
-          <Header title="Lanscape"/>
-          <div className="container">
-             <div className="row">
-              <div className="jumbotron">
-                <h2 className="text-center">Welcome to GP-Landscaping</h2>
-                <p className="text-center">
-                  <em>Please fill out the form below to add a new Client/Job!!!!!!!</em>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+     
 
 
+     <div className="container">
+         <div className="row">
+          <Header/>
 
-          <div className="col-md-6">
 
-           {this.props.children}
-           
-            <Link to ="clients"><button className= "btn btn-success">New Client</button></Link>
+       
+         {this.props.children}
+
+
+         <div className="col-md-6">
+
+         
+         
+            <Link to ="Clients" className="btn btn-success">New Client</Link>
           </div>
 
 
 
-
+</div>
+</div>
           
-        </div>
-    );
+       
+   );
   }
 });
 
-// Export the component back for use in other files
+
 module.exports = Main;
-
-
 
